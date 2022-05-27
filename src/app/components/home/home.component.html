@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="row">
+        <ng-container *ngFor="let book of bookList">
+            <div class="card col-md-3">
+            <div class="image-card"><img src="../../../assets/img/{{book.coverFileName}}" alt="no image"></div> 
+            <div><b>Title: {{book.title}}</b></div>
+            <div><b>Author: {{book.author}}</b></div>
+            <div> <b>Price: {{book.price}}</b></div>  
+            <button class="btn btn-primary" (click)="addToCart(book)" >Add to cart</button>
+                </div>
+        </ng-container>
+      
+    </div>
+</div>
+

@@ -1,0 +1,19 @@
+.bookCart{
+    color: white;
+    left: 50px;
+    position: absolute;
+   
+
+}
+.navbar{
+    color: white;
+}
+.faBook{
+    margin-left: 20px;
+    
+}
+/* .badge :focus{
+    outline: none;
+    border: none;
+    cursor: pointer;
+} */

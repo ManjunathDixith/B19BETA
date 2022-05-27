@@ -1,0 +1,64 @@
+<ng-container *ngIf="booklist.length !=0">
+<div class="card-table">
+    <div class="card">
+        <div class="card-title" >
+           <h2>My Cart</h2> 
+            <button class="btn btn-light" id="clearcart" (click)="emptyCart()" > <b>Clear Cart</b> </button> 
+        </div>  
+        <table class="table table-hover" style="position: absolute; top: 40px; left: 0px;">
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Title</th>
+                    <th>MRP</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr   *ngFor="let book of booklist; ">
+                    <td ><img class="image-card"  src="../../../assets/img/{{book.coverFileName}}" alt="no image"> </td>
+                    <td style="width: 12%;">{{book.title}}</td>
+                    <td style="width: 12%;">₹ {{book.price}}</td>
+                    <td style="width: 20%;">
+                        <!-- <button class="btn btn-success" style="margin-right: 5px;" (click)="increase(book)" (click)="priceIncrease(book)"><fa-icon [icon]=" faPlus" style="font-size: 10px; padding: 5px;"></fa-icon></button> -->
+                        <button mat-icon-button color="warn" ><mat-icon (click)="decrease()" >remove_circle</mat-icon></button> 
+                        {{quantity}} 
+                        <!-- <button class="btn btn-success" style="margin-left: 5px;" (click)="decrease(book)" (click)="priceDecrease(book)"><fa-icon [icon]=" faMinus" style="font-size: 10px; padding: 5px;"></fa-icon></button> -->
+                        <button mat-icon-button color="warn"  ><mat-icon  (click)="increase()" >add_circle</mat-icon></button>
+                    </td>
+                    <td style="width: 12%;"> {{book.total*quantity | currency:'INR' }} </td>
+                    <td>
+                     <button class="btn btn-danger" (click)="removeItem(book)"><fa-icon [icon]="faTrash" style="font-size: 20px; padding: 5px;"></fa-icon></button>   
+                    </td>
+                </tr>
+                <tr >
+                    <td colspan="4"></td>
+                    <!-- <td ><button class="btn btn-primary" routerLink="/home">Shop more</button> </td> -->
+                    <td style="width: 200px;"><strong>Grand total : {{grandTotal | currency:'INR'}}</strong></td>
+                    <td ><button class="btn btn-dark">Check out</button> </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</ng-container>
+
+
+
+<ng-container *ngIf="booklist.length ==0">
+    <div class="container">
+        <div class="card">
+            <h5 class="card-title" >
+                My Cart
+            </h5>
+        </div>
+        <div class="center">
+            <h4>Your Cart is empty!!</h4>
+            
+            <button class="btn btn-primary" (click)="startShoping()">shop now</button>
+        </div>
+    </div>
+</ng-container>
+hr
